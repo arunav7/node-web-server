@@ -32,9 +32,9 @@ app.use((req,res,next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintainence.hbs');
-});
+// app.use((req, res, next) => {
+//     res.render('maintainence.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));  // this is addedd below the maintainenece page because node will run code sequentially,due to this static page willbe rendered as it was but not according to maintainence.hbs
 
