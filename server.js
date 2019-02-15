@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 app.set('view engine', 'hbs');
@@ -62,6 +64,9 @@ app.get('/bad',(req, res) => {
     });
 });
 
-app.listen(3010, () => {
-    console.log('Server is up on port 3010');
+// for website to deploy on heroku we have to set the port dynamically because everytime heroku deploys website ,port changes
+// and we need to add script in package.json file as start, because heroku doesnt know our file name, instead it will run start sript to deploy
+
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
